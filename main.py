@@ -1,3 +1,4 @@
+# [START gae_flex_quickstart]
 import logging
 
 from flask import Flask
@@ -9,7 +10,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Hello World! 01'
+    return 'Hello World!'
 
 
 @app.errorhandler(500)

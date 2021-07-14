@@ -1,27 +1,11 @@
-import logging
+#!/usr/bin/env python
 
-from flask import Flask
+import webapp2
 
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello():
-    """Return a friendly HTTP greeting."""
-    return 'Hello world 01'
-
-
-@app.errorhandler(500)
-def server_error(e):
-    logging.exception('An error occurred during a request.')
-    return """
-    An internal error occurred: <pre>{}</pre>
-    See logs for full stacktrace.
-    """.format(e), 500
-
-
-if __name__ == '__main__':
-    # This is used when running locally. Gunicorn is used to run the
-    # application on Google App Engine. See entrypoint in app.yaml.
-    app.run(host='127.0.0.1', port=8080, debug=True)
+class MainHandler(webapp2.RequestHandler):
+    def get(self)
+        self.response.write('Hello world')
+        
+app = webapp2.WSGIApplication([
+    ('/', MainHandler)
+], debug=True)

@@ -1,4 +1,3 @@
-# [START gae_flex_quickstart]
 import logging
 
 from flask import Flask
